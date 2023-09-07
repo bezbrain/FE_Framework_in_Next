@@ -8,7 +8,7 @@ import { NavContextProps, NavProviderProps } from "@/typesrafce";
 export const NavContext = createContext<NavContextProps | undefined>(undefined);
 
 export const NavProvider = ({ children }: NavProviderProps) => {
-  const [navState, setNavState] = useState<string>("Our Services");
+  const [navState, setNavState] = useState<string>("Services");
 
   return (
     <NavContext.Provider value={{ navState, setNavState }}>

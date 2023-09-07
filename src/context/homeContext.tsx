@@ -5,9 +5,7 @@
 import { HomeContextProps, HomeProviderProps } from "@/typesrafce";
 import { createContext, useContext, useState } from "react";
 
-export const HomeContext = createContext<HomeContextProps | undefined>(
-  undefined
-);
+const HomeContext = createContext<HomeContextProps | undefined>(undefined);
 
 export const HomeProvider = ({ children }: HomeProviderProps) => {
   const [homeState, setHomeState] = useState<number>(2);
