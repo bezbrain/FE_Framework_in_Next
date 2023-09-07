@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const AboutLayout = () => {
   return (
     <div>
-      <h3>This is the about page layout</h3>
+      <h3>This is the about page shared layout</h3>
       <About />
     </div>
   );

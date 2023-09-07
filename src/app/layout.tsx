@@ -2,10 +2,12 @@
 
 "use client"; //This statement is just to make sure createGlobalStyle works from the client side
 
-import { GlobalStyle } from "@/stylesrafce";
+import "./global.css";
 import type { Metadata } from "next";
 import { Footer, Nav } from "@/components/sharedLayoutsrafce";
-import StyledComponentsRegistry from "./registry";
+import StyledComponentsRegistry from "../lib/registry";
+import { NavProvider } from "@/context/navContextrafce";
+import { HomeProvider } from "@/context/homeContextrafce";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -14,18 +16,19 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
-      <GlobalStyle />
-      <html lang="en">
-        <body>
-          <StyledComponentsRegistry>
-            <Nav />
-            {children}
-            <Footer />
-          </StyledComponentsRegistry>
-        </body>
-      </html>
-    </>
+    <html lang="en">
+      <body>
+        <StyledComponentsRegistry>
+          <NavProvider>
+            <HomeProvider>
+              <Nav />
+              {children}
+              <Footer />
+            </HomeProvider>
+          </NavProvider>
+        </StyledComponentsRegistry>
+      </body>
+    </html>
   );
 };
 
